@@ -3,6 +3,7 @@ const weatherForm = document.querySelector('form');
 const searchInput = document.querySelector('input');
 const messageOne = document.querySelector('#message-1');
 const messageTwo = document.querySelector('#message-2');
+const weatherIcon = document.querySelector(".weather-icon");
 
 weatherForm.addEventListener('submit',(e)=>{
   e.preventDefault();
@@ -25,7 +26,9 @@ fetch(url).then((response)=>{
     else
     {
       messageOne.textContent = data.location;
-      messageTwo.textContent = `${data.forecast}. It is ${data.temperature} degrees, feels like ${data.feelslike} degrees.`;
+      messageTwo.textContent = `Time:${data.time}:: ${data.forecast}. It is ${data.temperature} degrees, feels like ${data.feelslike} degrees.`;
+      weatherIcon.setAttribute('src', data.icon);
+      weatherIcon.classList.remove('hide');
     }
   }
   )
