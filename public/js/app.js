@@ -28,7 +28,6 @@ fetch(url).then((response)=>{
       messageOne.textContent = data.location;
       messageTwo.textContent = `Time:${data.time}:: ${data.forecast}. It is ${data.temperature} degrees, feels like ${data.feelslike} degrees.`;
       weatherIcon.setAttribute('src', data.icon);
-      weatherIcon.classList.remove('hide');
     }
   }
   )
